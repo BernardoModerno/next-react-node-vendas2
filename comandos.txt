@@ -1,0 +1,26 @@
+yarn init -y
+yarn add typescript -D
+yarn add express
+yarn add @types/express -D
+yarn tsc --init
+yarn add ts-node-dev -D
+yarn add express-async-errors
+yarn add cors
+yarn add @types/cors -D
+yarn add prisma
+yarn add @prisma/client
+npx prisma init
+yarn prisma migrate dev
+yarn add bcryptjs
+yarn add @types/bcryptjs -D
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken -D
+yarn add dotenv
+yarn add multer
+yarn add @types/multer -D
+npx create-next-app frontend
+yarn dev
+yarn add bootstrap
+yarn add react-icons
+yarn add axios nookies jwt-decode
+yarn add react-chartjs-2 chart.js
