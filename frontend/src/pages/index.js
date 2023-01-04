@@ -1,7 +1,7 @@
-import '../../styles/Home.module.css';
+import '../components/login/login.module.css';
 import Head from 'next/head'
 import Image from 'next/image';
-import logoImg from '../../public/vendas.svg';
+import logoImg from '../../public/vendas1.png';
 import { Container, Form } from 'react-bootstrap';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../contexts/AuthContext'
@@ -44,28 +44,47 @@ export default function Home() {
           <title>Sistema de Vendas</title> 
         </Head>
 
-        <Container className='container text-center dark mt-5'>
-          <div class="row">
-            <main className="form-signin w-50 m-auto">
-              <Form onSubmit={handleLogin}>
-                <Image src={logoImg} alt="Vendas" width="72" height="57"/>
-                <h1 className="h3 mb-3 fw-normal">Entre com seus dados:</h1>
-            
-                <div className="form-floating">
-                  <input value={email} onChange={ (e) => setEmail(e.target.value)} type="email" className="form-control mb-2" id="floatingInput" placeholder="name@example.com"/>
-                  <label for="floatingInput">Email:</label>
+      <section className="vh-100 gradient-custom">
+        <div className="container py-1 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div className="card bg-dark text-white" style={{borderRadius: "1rem"}}>
+                <div className="card-body p-5 text-center">
+                  <Form onSubmit={handleLogin}>
+                    <Image src={logoImg} alt="Vendas" width="72" height="57" />
+                     <div className="mb-md-5 mt-md-4 pb-5">
+   
+   
+                       <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
+                       <p className="text-white-50 mb-5">Entre com seu email e senha</p>
+   
+                       <div className="form-outline form-white mb-4">
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="typeEmailX" className="form-control form-control-lg" placeholder="name@example.com" />
+                         <label className="form-label" for="typeEmailX">Email</label>
+                       </div>
+   
+                       <div className="form-outline form-white mb-4">
+                        <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="typePasswordX" className="form-control form-control-lg" placeholder="Password" />
+                         <label className="form-label" for="typePasswordX">Senha</label>
+                       </div>
+   
+ 
+                      <button className="btn btn-outline-light btn-lg px-5" type="submit" loading={loading}>Login</button>
+   
+                     </div>
+                  </Form>
+                     <div>
+                    <p className="mb-0">Não tem conta? <Link href='/signup'>Registrar-me</Link>
+                       </p>
+                     </div>
+
+                
                 </div>
-                <div className="form-floating sm">
-                  <input value={password} onChange={ (e) => setPassword(e.target.value) } type="password" className="form-control mb-2" id="floatingPassword" placeholder="Password" />
-                  <label for="floatingPassword">Senha:</label>
-                </div>
-            
-                <button className="w-100 btn btn-lg btn-primary mb-2" type="submit" loading={loading}>Entrar</button>
-              </Form>
-              <Link href='/signup'>Registrar-me</Link>
-            </main>
-         </div>
-       </Container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
        </>
     )

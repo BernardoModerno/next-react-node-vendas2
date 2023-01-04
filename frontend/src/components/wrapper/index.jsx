@@ -4,8 +4,9 @@ export function Wrapper(props) {
   
     return (
       <>
-        <NavSup />
+        
           <div className="container-fluid">
+          <NavSup />
            <div className="row">
              <main className="col-md-12 ms-sm-auto col-lg-12 px-md-2">
                 {props.children}

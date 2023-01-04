@@ -1,12 +1,14 @@
 import { Container } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import Image from 'next/image';
-import logoImg from '../../../public/vendas.svg';
+import logoImg from '../../../public/vendas1.png';
 import { useState, useContext } from 'react'
 import Head from 'next/head';
 import { AuthContext } from '../../contexts/AuthContext'
 import { toast } from 'react-toastify'
 import Link from 'next/link';
+import '../../components/login/login.module.css';
+
 
 
 export default function SignUp() {
@@ -45,27 +47,52 @@ export default function SignUp() {
           <Head>
            <title>Sistema de vendas</title> 
           </Head>
-          <Container className='container text-center dark mt-5'>
-            <Form onSubmit={handleSignUp}>
-              <Image src={logoImg} alt="Vendas" width="72" height="57"/>
-              <div className='form-signin w-50 m-auto'>
-                <Form.Group className="mb-3" controlId="nome">
-                  <Form.Label>Nome Completo:</Form.Label>
-                  <Form.Control type='text' placeholder='Digite seu nome completo' value={name} onChange={ (e) => setName(e.target.value)} />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Email:</Form.Label>
-                  <Form.Control type="email" placeholder="name@example.com" value={email} onChange={ (e) => setEmail(e.target.value) } />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="password">
-                  <Form.Label>Senha:</Form.Label>
-                  <Form.Control type="password" placeholder="Senha" value={password} onChange={ (e) => setPassword(e.target.value) } />
-                </Form.Group>
+        <section className="vh-100 gradient-custom">
+          <div className="container py-1 h-100">
+            <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div className="card bg-dark text-white" style={{ borderRadius: "1rem" }}>
+                  <div className="card-body p-5 text-center">
+                    <Form onSubmit={handleSignUp}>
+                      <Image src={logoImg} alt="Vendas" width="72" height="57" />
+                      <div className="mb-md-1 mt-md-1 pb-5">
+
+
+                        <h2 className="fw-bold mb-2 text-uppercase">Registro</h2>
+                        <p className="text-white-50 mb-2">Entre com seu dados</p>
+
+                        <div className="form-outline form-white mb-4">
+                          <input value={name} onChange={(e) => setName(e.target.value)} type="text" id="typeTextX" className="form-control form-control-lg" placeholder="Nome Completo" />
+                          <label className="form-label" for="typeTextX">Nome</label>
+                        </div>
+
+                        <div className="form-outline form-white mb-4">
+                          <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="typeEmailX" className="form-control form-control-lg" placeholder="name@example.com" />
+                          <label className="form-label" for="typeEmailX">Email</label>
+                        </div>
+
+                        <div className="form-outline form-white mb-4">
+                          <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="typePasswordX" className="form-control form-control-lg" placeholder="Password" />
+                          <label className="form-label" for="typePasswordX">Senha</label>
+                        </div>
+
+
+                        <button className="btn btn-outline-light btn-lg px-5" type="submit" loading={loading}>Confirmar</button>
+
+                      </div>
+                    </Form>
+                    <div>
+                      <p className="mb-0">Já tenho cadastro <Link href='/'>Voltar</Link>
+                      </p>
+                    </div>
+
+
+                  </div>
+                </div>
               </div>
-              <button className="w-50 btn btn-lg btn-primary mb-2" type="submit" loading={loading}>Registrar-se</button>
-            </Form>
-            <Link href='/'>Já tenho cadastro</Link>
-          </Container>
+            </div>
+          </div>
+        </section>
         </>
     )
 }

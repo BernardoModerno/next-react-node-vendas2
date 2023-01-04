@@ -1,35 +1,36 @@
 import prismaClient from "../../prisma";
 
-class ListOrdersService{
+class ListOrdersServiceSemItems{
   async execute(){
     
     const orders = await prismaClient.order.findMany({
       where:{
         draft: true,
         status: false,
+        items: {
+          none: {
+            id: undefined
+          }
+        }
       },
       orderBy:{
         created_at: 'desc'
       },
       include: {
-        // Include 
-        items: {
-          include: {
-            product: {
-              include: {
-                category: true,
-              },
-            },
-          },
-        },
+        
+             
+                items: true,
+              
+            
       },
-          
       
     })
+
+    
     
     return orders;
     
   }
 }
 
-export { ListOrdersService }
+export { ListOrdersServiceSemItems }

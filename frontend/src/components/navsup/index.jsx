@@ -7,6 +7,8 @@ export function NavSup () {
 
     const { signOut } = useContext(AuthContext);
 
+    const { user } = useContext(AuthContext);
+
     return (
       <Navbar bg='dark' expand='lg' variant='dark'>
           <Container>
@@ -30,15 +32,22 @@ export function NavSup () {
                       >
                           <a className="nav-link">Categorias</a>
                       </Nav.Link>
+                        <Nav.Link
+                            className="nav-link"
+                            as={Link}
+                            href='/orders'
+                        >
+                            <a className="nav-link">Ordens de Venda</a>
+                        </Nav.Link>
                   </Nav>
                   <Nav>
                       <NavDropdown
                           align='end'
-                          title='Bernardo'
+                          title={user?.name}
                           id='basic-nav-dropdown'
                       >
                           <NavDropdown.Item href='#action/3.1'>
-                              Perfil
+                                <p>{user?.email}</p>
                           </NavDropdown.Item>
                           <NavDropdown.Item href='#action/3.3'>
                               Configurações

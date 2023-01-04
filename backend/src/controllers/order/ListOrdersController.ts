@@ -24,8 +24,10 @@ class ListOrdersController{
         created_at: 'desc'
       },
       include:{
-        items : true
+        items : true,
+        
       },
+
       take: take,
       skip: (page - 1) * take,
     })
